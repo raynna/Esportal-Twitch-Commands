@@ -1,0 +1,2 @@
+$(eval d=$(urlfetch json https://api.esportal.com/user_profile/get?username=$(querystring));
+    d.game_stats&&d.game_stats[2]?`${d.username} Rank: ${['Legend','Pro','Elite','Master','Veteran','Gold','Silver'].find(r=>(e=d.game_stats[2].elo)>={Legend:2000,Pro:1800,Elite:1600,Master:1400,Veteran:1200,Gold:1000,Silver:0}[r])} (Rating: ${e}), Placering: ${d.leaderboard_position}`:'')
